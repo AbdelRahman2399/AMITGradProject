@@ -28,12 +28,18 @@ int main(){
 
 	while (1){
 		SPI_SEND(0xFF);
-		if(recieved_spi == 0x31){
-			toggleBit(PORTA,0);
-		}
-		if(recieved_spi == 0x32){
-			toggleBit(PORTA,1);
-		}
+	    if(recieved_spi == 0x31){
+	    			setBit(PORTA,0);
+	    		}
+	    		if(recieved_spi == 0x32){
+	    			clearBit(PORTA,0);
+	    		}
+	    	    if(recieved_spi == 0x33){
+	    	    			setBit(PORTA,1);
+	    	    		}
+	    	    		if(recieved_spi == 0x34){
+	    	    			clearBit(PORTA,1);
+	    	    		}
 		PORTD=recieved_spi;
 
 	}
